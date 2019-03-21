@@ -1,7 +1,5 @@
 # conky setup
 
-add the following line at the end of the file ~/.config/awesome/autorun.sh
+just run the `setup.sh` script
 
-`run start_conky_maia`
-
-add the other files given (./usr/*) in same directory order as given, to /usr
+it will copy the config files and lua scripts to `~/.config/conky/` and add the lines to execute these to the file `~/.config/awesome/autorun.sh`

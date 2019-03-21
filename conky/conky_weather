@@ -1,0 +1,21 @@
+conky.config = {
+ alignment = 'top_middle',
+ background = true,
+ cpu_avg_samples = 2,
+ double_buffer = true,
+ font = 'Mono:size=12',
+ draw_shades = false,
+ gap_y = 15,
+ minimum_width = 5,
+ minimum_height = 5,
+ no_buffers = true,
+ own_window = true,
+ own_window_type = 'override',
+ own_window_transparent = true,
+ update_interval = 10.0,
+ use_xft = true,
+ lua_load = '~/.config/conky/weather.lua'
+}
+conky.text = [[
+${lua_parse weather}
+]]
