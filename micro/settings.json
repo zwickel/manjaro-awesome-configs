@@ -13,7 +13,7 @@
     "ignorecase": true,
     "indentchar": " ",
     "infobar": true,
-    "keepautoindent": false,
+    "keepautoindent": true,
     "keymenu": false,
     "linter": true,
     "literate": true,
