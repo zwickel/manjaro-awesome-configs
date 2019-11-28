@@ -71,8 +71,8 @@ awful.layout.layouts = {
     --awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
-    -- awful.layout.suit.fair,
-    -- awful.layout.suit.fair.horizontal,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
@@ -140,12 +140,21 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock("%H:%M ")
+-- create date widget
+local mycalendar = wibox.widget.calendar.month(os.date('*t'))
+-- local mycalendar = wibox.widget {
+  -- date         = os.date('*t'),
+  -- font         = 'Monospace 8',
+  -- spacing      = 2,
+  -- week_numbers = true,
+  -- start_sunday = false,
+  -- widget       = wibox.widget.calendar.month
+-- }
+-- Keyboard map indicator and switcher
+mykeyboardlayout = awful.widget.keyboardlayout()
 
 markup      = lain.util.markup
 -- darkblue    = theme.bg_focus
@@ -221,7 +230,7 @@ awful.screen.connect_for_each_screen(function(s)
     --awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
     awful.tag.add("1", {
       -- icon = "/path/to/icon1.png",
-      layout = awful.layout.suit.tile,
+      layout = awful.layout.suit.floating,
       screen = s,
       selected = true,
     })
@@ -246,7 +255,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     awful.tag.add("5", {
       -- icon = "/path/to/icon1.png",
-      layout = awful.layout.suit.tile,
+      layout = awful.layout.suit.floating,
       screen = s,
     })
 
@@ -270,7 +279,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     awful.tag.add("9", {
       -- icon = "/path/to/icon1.png",
-      layout = awful.layout.suit.tile,
+      layout = awful.layout.suit.max,
       screen = s,
     })
     
@@ -579,7 +588,8 @@ awful.rules.rules = {
           "veromix",
           "xtightvncviewer",
           "Tilda",
-          "Galculator"},
+          "Galculator",
+          "okular"},
 
         name = {
           "Event Tester",  -- xev.
