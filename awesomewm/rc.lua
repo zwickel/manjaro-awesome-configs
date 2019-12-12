@@ -112,6 +112,7 @@ myawesomemenu = {
 }
 
 myexitmenu = {
+    { "lock", lockscreen, "/usr/share/icons/Arc-Maia/actions/24@2x/lock.png" },
     { "log out", function() awesome.quit() end, "/usr/share/icons/Arc-Maia/actions/24@2x/system-log-out.png" },
     { "suspend", "systemctl suspend", "/usr/share/icons/Arc-Maia/actions/24@2x/gnome-session-suspend.png" },
     { "hibernate", "systemctl hibernate", "/usr/share/icons/Arc-Maia/actions/24@2x/gnome-session-hibernate.png" },
@@ -346,6 +347,8 @@ globalkeys = gears.table.join(
               {description = "go back", group = "tag"}),
     -- awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               -- {description = "go back", group = "tag"}),
+    awful.key({ modkey,           }, "Escape", function() awful.util.spawn("light-locker-command -l") end,
+              {description = "lock screen", group = "awesome"}),
 
     awful.key({ modkey,           }, "j",
         function ()
